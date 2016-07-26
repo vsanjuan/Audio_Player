@@ -49,9 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
                 float volume_level= am.getStreamVolume(AudioManager.STREAM_MUSIC);
 
+                int maxVolume = 50;
+                float log1=(float)(Math.log(maxVolume-volume_level)/Math.log(maxVolume));
+
+
                 Log.v("Initial volume", "Volume starts: " + Float.toString(volume_level));
 
-                mediaPlayer.setVolume(volume_level+ 10.0f,0);
+                mediaPlayer.setVolume(log1,log1);
 
 
 
