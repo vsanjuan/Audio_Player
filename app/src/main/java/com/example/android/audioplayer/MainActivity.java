@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.v("Initial volume", "Volume starts: " + Float.toString(volume_level));
 
-                mediaPlayer.setVolume(volume_level+ 10.0f, volume_level + 10.0f);
+                mediaPlayer.setVolume(volume_level+ 10.0f,0);
 
 
 
