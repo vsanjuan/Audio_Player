@@ -10,6 +10,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private float currVolume = 100;
+    private float maxVolume = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final Button play = (Button) findViewById(R.id.play_audio);
         final Button pause = (Button) findViewById(R.id.pause_audio);
         final Button inc_volume = (Button) findViewById(R.id.inc_volume);
+        final Button dec_volume = (Button) findViewById(R.id.dec_volume);
 
         play.setOnClickListener( new View.OnClickListener() {
 
@@ -42,20 +45,44 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+
+
+
+
         inc_volume.setOnClickListener( new View.OnClickListener() {
 
             public void onClick(View view) {
 
-                AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
-                float volume_level= am.getStreamVolume(AudioManager.STREAM_MUSIC);
+                currVolume = currVolume + 10;
 
-                int maxVolume = 50;
-                float log1=(float)(Math.log(maxVolume-volume_level)/Math.log(maxVolume));
+                AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
+                float  volume_level = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+                float log1=(float)(Math.log(maxVolume-currVolume )/Math.log(maxVolume));
 
 
                 Log.v("Initial volume", "Volume starts: " + Float.toString(volume_level));
 
-                mediaPlayer.setVolume(log1,log1);
+                mediaPlayer.setVolume(1-log1,1-log1);
+
+            }
+
+        });
+
+        dec_volume.setOnClickListener( new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                currVolume = currVolume - 10;
+
+                AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
+                float  volume_level = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+                float log1=(float)(Math.log(maxVolume-currVolume )/Math.log(maxVolume));
+
+
+                Log.v("Initial volume", "Volume starts: " + Float.toString(volume_level));
+
+                mediaPlayer.setVolume(1-log1,1-log1);
 
 
 

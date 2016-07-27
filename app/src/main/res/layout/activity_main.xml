@@ -31,4 +31,11 @@
         android:onClick="+inc_volume"
         android:text="+Volume"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dec_volume"
+        android:onClick="+dec_volume"
+        android:text="-Volume"/>
+
 </LinearLayout>
