@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 mediaPlayer.start();
-                Toast.makeText(getApplicationContext(),"Hola",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Hello", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer m) {
 
-                Toast.makeText(getApplicationContext(),"Hola",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Hello",Toast.LENGTH_SHORT).show();
                 mediaPlayer.release();
         }
 
